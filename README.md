@@ -19,7 +19,7 @@ A step-by-step guide to deploying WordPress on an AWS EC2 instance, covering EC2
 ## Step 1: Create an EC2 Instance
 
 1. Log into your AWS account.
-2. In the search bar, type "EC2" and click on the "EC2: link
+2. In the search bar, type "EC2" and click on the "EC2" link
 3. Click on "Launch Instance" to create a new instance.
 4. Select an Amazon Machine Image (AMI) - for this, you can choose the 'Amazon Linux 2023 AMI' which is free tier eligible
 5. Choose an instance type. The "t2.micro" should suffice for basic purposes and it's free tier eligible.
