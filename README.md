@@ -2,6 +2,9 @@
 
 A step-by-step guide to deploying WordPress on an AWS EC2 instance, covering EC2 setup, SSH access, and WordPress installation.
 
+![image](https://github.com/Btech31488/wordpress-on-ec2/assets/104148696/13d30e68-19a7-4518-8bc3-9117b1653218)
+
+
 ## Table of Contents
 
 - [Prerequisites](#prerequisites)
