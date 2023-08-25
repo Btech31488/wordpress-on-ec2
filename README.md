@@ -63,70 +63,70 @@ sudo systemctl start mariadb httpd
 ```
 
 4. Set up the database:
-- Secure the database
+   - Secure the database
   
-```
-sudo mysql_secure_installation
-```
-- Type the current root password. By default, the root account does not have a password set. Press Enter.
-- Type Y to set a password, and type a secure password twice. For more information about creating a secure password, see https://identitysafe.norton.com/password-generator/. Make sure to store this password in a safe place.
-- Type Y to remove the anonymous user accounts.
-- Type Y to disable the remote root login.
-- Type Y to remove the test database.
-- Type Y to reload the privilege tables and save your changes.
-- Login to database server as the root user. Enter your database root password when prompted; this may be different than your root system password
+   ```
+   sudo mysql_secure_installation
+   ```
+   - Type the current root password. By default, the root account does not have a password set. Press Enter.
+      - Type Y to set a password, and type a secure password twice. For more information about creating a secure password, see https://identitysafe.norton.com/password-generator/. Make sure to store this password in a safe place.
+      - Type Y to remove the anonymous user accounts.
+      - Type Y to disable the remote root login.
+      - Type Y to remove the test database.
+      - Type Y to reload the privilege tables and save your changes.
+   - Login to database server as the root user. Enter your database root password when prompted; this may be different than your root system password
 
-```
-mysql -u root -p
-```
-```
-CREATE USER 'wordpress-user'@'localhost' IDENTIFIED BY 'your_strong_password';
-```
-```
-CREATE DATABASE `wordpress-db`;
-```
-```
-GRANT ALL PRIVILEGES ON `wordpress-db`.* TO "wordpress-user"@"localhost";
-```
-```
-FLUSH PRIVILEGES;
-```
-```
-exit
-```
+   ```
+   mysql -u root -p
+   ```
+   ```
+   CREATE USER 'wordpress-user'@'localhost' IDENTIFIED BY 'your_strong_password';
+   ```
+   ```
+   CREATE DATABASE `wordpress-db`;
+   ```
+   ```
+   GRANT ALL PRIVILEGES ON `wordpress-db`.* TO "wordpress-user"@"localhost";
+   ```
+   ```
+   FLUSH PRIVILEGES;
+   ```
+   ```
+   exit
+   ```
 
 5. Edit edit the wp-config.php file
-- Navigate to the WordPress directory
+   - Navigate to the WordPress directory
   
-```
-cd /var/www/html/
-```
+   ```
+   cd /var/www/html/
+   ```
 
-- Update the wp-config.php file:
+   - Update the wp-config.php file:
 
-```
-sudo vim wp-config.php
-```
+   ```
+   sudo vim wp-config.php
+   ```
 
-- Find the line that defines DB_NAME and change database_name_here
+   - Find the line that defines DB_NAME and change database_name_here
 
-```
-define('DB_NAME', 'wordpress-db');
-```
+   ```
+   define('DB_NAME', 'wordpress-db');
+   ```
 
-- Find the line that defines DB_USER and change username_here
+   - Find the line that defines DB_USER and change username_here
 
-```
-define('DB_USER', 'wordpress-user');
-```
+   ```
+   define('DB_USER', 'wordpress-user');
+   ```
 
-- Find the line that defines DB_PASSWORD and change password_here
+   - Find the line that defines DB_PASSWORD and change password_here
 
-```
-define('DB_PASSWORD', 'your_strong_password');
-```
+   ```
+   define('DB_PASSWORD', 'your_strong_password');
+   ```
 
-- Find the section called Authentication Unique Keys and Salts. These KEY and SALT values provide a layer of encryption to the browser cookies that WordPress users store on their local machines. Basically, adding long, random values here makes your site more secure. Visit https://api.wordpress.org/secret-key/1.1/salt/ to randomly generate a set of key values that you can copy and paste into your wp-config.php file.
+   - Find the section called Authentication Unique Keys and Salts. These KEY and SALT values provide a layer of encryption to the browser cookies that WordPress users store on their local machines. Basically, adding long, random values here makes your site more secure. Visit https://api.wordpress.org/secret-key/1.1/salt/ to randomly generate a set of key values that you can copy and paste into your wp-config.php file.
 
 5. Give the right permissions:
 
